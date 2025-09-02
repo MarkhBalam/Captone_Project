@@ -53,4 +53,9 @@ class FacilityController extends Controller{
         Facility::create($data);
         return redirect()->route('facilities.index')->with('status','Facility created');
     }
+    public function show(Facility $facility)
+    {
+        $facility->load(['services','equipment','projects']);
+        return view('facilities.show', compact('facility'));
+    }
 }
