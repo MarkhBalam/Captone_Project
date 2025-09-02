@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Equipment extends Model
-{
+class Equipment extends Model{
+    protected $fillable = ['facility_id','name','capabilities','description','inventory_code','usage_domain','support_phase'];
+    
     //
 }
