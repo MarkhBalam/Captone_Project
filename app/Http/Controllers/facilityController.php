@@ -58,4 +58,8 @@ class FacilityController extends Controller{
         $facility->load(['services','equipment','projects']);
         return view('facilities.show', compact('facility'));
     }
+     public function edit(Facility $facility)
+    {
+        return view('facilities.edit', compact('facility'));
+    }
 }
