@@ -38,4 +38,19 @@ class FacilityController extends Controller{
     {
         return view('facilities.create');
     }
+     public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'location' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'partner_organization' => 'nullable|string|max:255',
+            'facility_type' => 'nullable|string|max:100',
+            'capabilities' => 'nullable|array',
+            'capabilities.*' => 'string|max:100',
+        ]);
+
+        Facility::create($data);
+        return redirect()->route('facilities.index')->with('status','Facility created');
+    }
 }
