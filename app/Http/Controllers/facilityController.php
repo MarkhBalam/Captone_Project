@@ -62,4 +62,28 @@ class FacilityController extends Controller{
     {
         return view('facilities.edit', compact('facility'));
     }
+     public function update(Request $request, Facility $facility)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'location' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'partner_organization' => 'nullable|string|max:255',
+            'facility_type' => 'nullable|string|max:100',
+            'capabilities' => 'nullable|array',
+            'capabilities.*' => 'string|max:100',
+        ]);
+
+        $facility->update($data);
+        return redirect()->route('facilities.show', $facility)->with('status','Facility updated');
+    }
+
+    public function destroy(Facility $facility)
+    {
+        if ($facility->projects()->exists()) {
+            return back()->withErrors('Facility has projects. Unlink projects first.');
+        }
+        $facility->delete();
+        return redirect()->route('facilities.index')->with('status','Facility deleted');
+    }
 }
