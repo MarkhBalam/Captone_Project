@@ -18,3 +18,22 @@ class ServiceController extends Controller
     {
         return view('services.create', compact('facility'));
     }
+
+    public function store(Request $request, Facility $facility)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'category' => 'required|string|max:100',
+            'skill_type' => 'required|string|max:100',
+        ]);
+
+        $facility->services()->create($data);
+        return redirect()->route('facilities.services.index', $facility)->with('status','Service created');
+    }
+
+    public function show(Service $service)
+    {
+        $service->load('facility');
+        return view('services.show', compact('service'));
+    }
