@@ -37,3 +37,29 @@ class ServiceController extends Controller
         $service->load('facility');
         return view('services.show', compact('service'));
     }
+
+    public function edit(Service $service)
+    {
+        return view('services.edit', compact('service'));
+    }
+
+    public function update(Request $request, Service $service)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'category' => 'required|string|max:100',
+            'skill_type' => 'required|string|max:100',
+        ]);
+
+        $service->update($data);
+        return redirect()->route('services.show', $service)->with('status','Service updated');
+    }
+
+    public function destroy(Service $service)
+    {
+        $facility = $service->facility;
+        $service->delete();
+        return redirect()->route('facilities.show', $facility)->with('status','Service deleted');
+    }
+}
