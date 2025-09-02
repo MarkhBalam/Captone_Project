@@ -34,4 +34,8 @@ class FacilityController extends Controller{
 
         return view('facilities.index', compact('facilities','types','partners'));
     }
+    public function create()
+    {
+        return view('facilities.create');
+    }
 }
