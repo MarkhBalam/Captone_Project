@@ -35,3 +35,9 @@ class ProjectController extends Controller
 
         return view('projects.index', compact('projects','programs','facilities'));
     }
+    public function create()
+    {
+        $programs   = Program::orderBy('name')->get();
+        $facilities = Facility::orderBy('name')->get();
+        return view('projects.create', compact('programs','facilities'));
+    }
