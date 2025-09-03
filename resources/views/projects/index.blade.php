@@ -18,3 +18,12 @@
         @endforeach
       </select>
     </div>
+     <div class="col-md-3">
+      <select class="form-select" name="facility_id">
+        <option value="">All facilities</option>
+        @foreach($facilities as $f)
+          <option value="{{ $f->id }}" @selected(request('facility_id')==$f->id)>{{ $f->name }}</option>
+        @endforeach
+      </select>
+    </div>
+  </div>
