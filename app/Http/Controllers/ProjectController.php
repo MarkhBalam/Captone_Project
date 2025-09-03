@@ -100,3 +100,12 @@ $project->update($data);
         $project->delete();
         return redirect()->route('projects.index')->with('status','Project deleted');
     }
+// pivot helpers
+    public function attachFacility(Project $project, Request $request)
+    {
+        $data = $request->validate([
+            'facility_id' => 'required|exists:facilities,id',
+        ]);
+        $project->facilities()->syncWithoutDetaching([$data['facility_id']]);
+        return back()->with('status','Facility linked to project');
+    }
