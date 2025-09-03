@@ -109,3 +109,9 @@ $project->update($data);
         $project->facilities()->syncWithoutDetaching([$data['facility_id']]);
         return back()->with('status','Facility linked to project');
     }
+public function detachFacility(Project $project, Facility $facility)
+    {
+        $project->facilities()->detach($facility->id);
+        return back()->with('status','Facility unlinked from project');
+    }
+}
