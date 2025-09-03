@@ -14,3 +14,7 @@
             @endforeach
         </select>
     </div>
+ <div class="col-md-6">
+        <label class="form-label">Nature</label>
+        <input name="nature_of_project" class="form-control" value="{{ old('nature_of_project', $project->nature_of_project ?? '') }}" required>
+    </div>
