@@ -30,3 +30,16 @@
         <label class="form-label">Innovation focus</label>
         <input name="innovation_focus" class="form-control" value="{{ old('innovation_focus', $project->innovation_focus ?? '') }}">
     </div>
+<div class="col-md-6">
+        <label class="form-label">Facilities</label>
+        <select name="facility_ids[]" class="form-select" multiple>
+            @foreach($facilities as $f)
+                <option value="{{ $f->id }}"
+                    @selected(collect(old('facility_ids', isset($project) ? $project->facilities->pluck('id')->all() : []))->contains($f->id))>
+                    {{ $f->name }}
+                </option>
+            @endforeach
+        </select>
+        <div class="form-text">Hold Ctrl, click to select multiple.</div>
+    </div>
+</div>
