@@ -38,3 +38,20 @@
                     <li class="list-group-item text-muted">No participants yet.</li>
                 @endforelse
             </ul>
+            <a href="{{ route('participants.create') }}" class="btn btn-primary btn-sm mt-3">Add Participant</a>
+        </div>
+
+        <div class="card p-4 mt-3">
+            <h5 class="mb-3">Outcomes</h5>
+            <ul class="list-group list-group-flush">
+                @forelse($project->outcomes as $o)
+                    <li class="list-group-item d-flex align-items-center">
+                        <div>
+                            <strong>{{ $o->title }}</strong>
+                            <div class="small text-muted">{{ $o->outcome_type }}{{ $o->commercialization_status ? ' • '.$o->commercialization_status : '' }}</div>
+                            @if($o->artifact_link)
+                                <a href="{{ $o->artifact_link }}" target="_blank">Open artifact</a>
+                            @endif
+                        </div>
+                        <a href="{{ route('outcomes.show',$o) }}" class="btn btn-sm btn-outline-secondary ms-auto">View</a>
+                    </li>
