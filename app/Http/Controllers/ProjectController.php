@@ -88,3 +88,8 @@ class ProjectController extends Controller
             'facility_ids' => 'nullable|array',
             'facility_ids.*' => 'exists:facilities,id',
         ]);
+        
+$project->update($data);
+        if ($request->has('facility_ids')) {
+            $project->facilities()->sync($data['facility_ids'] ?? []);
+        }
