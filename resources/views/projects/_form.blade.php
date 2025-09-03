@@ -40,3 +40,18 @@
            value="{{ old('innovation_focus', $project->innovation_focus ?? '') }}">
     @error('innovation_focus') <div class="invalid-feedback">{{ $message }}</div> @enderror
   </div>
+  <div class="col-md-6">
+    <label class="form-label">Facilities (Ctrl+click for multiple)</label>
+    <select name="facility_ids[]" class="form-select @error('facility_ids') is-invalid @enderror" multiple>
+      @foreach($facilities as $f)
+        <option value="{{ $f->id }}"
+          @selected(collect(old('facility_ids', isset($project) ? $project->facilities->pluck('id')->all() : []))->contains($f->id))>
+          {{ $f->name }}
+        </option>
+      @endforeach
+    </select>
+    @error('facility_ids') <div class="invalid-feedback">{{ $message }}</div> @enderror
+    @error('facility_ids.*') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
+  </div>
+</div>
+
