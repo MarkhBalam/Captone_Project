@@ -48,3 +48,15 @@ class ProjectSeeder extends Seeder
                 'innovation_focus' => 'Energy',
             ],
         ];
+        DB::transaction(function () use ($projects, $programIds, $facilityIds) {
+            foreach ($projects as $data) {
+                $data['program_id'] = Arr::random($programIds);
+                $project = Project::create($data);
+
+                // Attach 1–3 random facilities per project
+                $attach = Arr::random($facilityIds, min(3, max(1, rand(1, 3))));
+                $project->facilities()->sync((array) $attach);
+            }
+        });
+    }
+}
