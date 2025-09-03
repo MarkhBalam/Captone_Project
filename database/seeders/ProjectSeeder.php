@@ -18,3 +18,11 @@ class ProjectSeeder extends Seeder
             // Make sure ProgramSeeder and FacilitySeeder run first.
             return;
         }
+        $projects = [
+            [
+                'title' => 'Smart Irrigation',
+                'nature_of_project' => 'Applied',
+                'prototype_stage' => 'MVP',
+                'description' => 'Soil sensors + mobile dashboard',
+                'innovation_focus' => 'AgriTech',
+            ],
