@@ -22,3 +22,16 @@ class ProjectController extends Controller
                       ->orWhere('nature_of_project', 'like', "%{$q}%");
                 })
             )
+->when($programId, fn($qry) => $qry->where('program_id', $programId))
+            ->when($facilityId, fn($qry) =>
+                $qry->whereHas('facilities', fn($w) => $w->where('facilities.id', $facilityId))
+            )
+            ->latest()
+            ->paginate(15)
+            ->withQueryString();
+
+        $programs   = Program::orderBy('name')->get();
+        $facilities = Facility::orderBy('name')->get();
+
+        return view('projects.index', compact('projects','programs','facilities'));
+    }
