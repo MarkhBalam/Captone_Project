@@ -68,3 +68,9 @@ class ProjectController extends Controller
         $allFacilities = Facility::orderBy('name')->get();
         return view('projects.show', compact('project','allFacilities'));
     }
+     public function edit(Project $project)
+    {
+        $programs   = Program::orderBy('name')->get();
+        $facilities = Facility::orderBy('name')->get();
+        return view('projects.edit', compact('project','programs','facilities'));
+    }
