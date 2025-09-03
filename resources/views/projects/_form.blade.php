@@ -23,3 +23,9 @@
            value="{{ old('nature_of_project', $project->nature_of_project ?? '') }}" required>
     @error('nature_of_project') <div class="invalid-feedback">{{ $message }}</div> @enderror
   </div>
+   <div class="col-md-6">
+    <label class="form-label">Prototype stage</label>
+    <input name="prototype_stage" class="form-control @error('prototype_stage') is-invalid @enderror"
+           value="{{ old('prototype_stage', $project->prototype_stage ?? '') }}">
+    @error('prototype_stage') <div class="invalid-feedback">{{ $message }}</div> @enderror
+  </div>
