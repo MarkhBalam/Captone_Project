@@ -17,3 +17,9 @@
     </select>
     @error('program_id') <div class="invalid-feedback">{{ $message }}</div> @enderror
   </div>
+  <div class="col-md-6">
+    <label class="form-label">Nature</label>
+    <input name="nature_of_project" class="form-control @error('nature_of_project') is-invalid @enderror"
+           value="{{ old('nature_of_project', $project->nature_of_project ?? '') }}" required>
+    @error('nature_of_project') <div class="invalid-feedback">{{ $message }}</div> @enderror
+  </div>
