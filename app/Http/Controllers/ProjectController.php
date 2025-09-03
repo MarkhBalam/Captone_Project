@@ -95,3 +95,8 @@ $project->update($data);
         }
           return redirect()->route('projects.show', $project)->with('status','Project updated');
     }
+    public function destroy(Project $project)
+    {
+        $project->delete();
+        return redirect()->route('projects.index')->with('status','Project deleted');
+    }
