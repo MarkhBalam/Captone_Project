@@ -101,3 +101,20 @@
                 @empty
                     <div class="text-muted">No facilities linked.</div>
                 @endforelse
+                </div>
+            <form method="post" action="{{ route('projects.facilities.attach',$project) }}">
+                @csrf
+                <div class="input-group">
+                    <select name="facility_id" class="form-select" required>
+                        <option value="">Select facility</option>
+                        @foreach($allFacilities as $f)
+                            <option value="{{ $f->id }}">{{ $f->name }}</option>
+                        @endforeach
+                    </select>
+                    <button class="btn btn-outline-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
