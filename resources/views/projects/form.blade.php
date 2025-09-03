@@ -43,3 +43,7 @@
         <div class="form-text">Hold Ctrl, click to select multiple.</div>
     </div>
 </div>
+<div class="mt-3">
+    <button class="btn btn-primary">{{ $edit ? 'Update Project' : 'Create Project' }}</button>
+    <a href="{{ route('projects.index') }}" class="btn btn-link">Cancel</a>
+</div>
