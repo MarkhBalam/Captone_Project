@@ -29,3 +29,8 @@
            value="{{ old('prototype_stage', $project->prototype_stage ?? '') }}">
     @error('prototype_stage') <div class="invalid-feedback">{{ $message }}</div> @enderror
   </div>
+  <div class="col-12">
+    <label class="form-label">Description</label>
+    <textarea name="description" rows="3" class="form-control @error('description') is-invalid @enderror">{{ old('description', $project->description ?? '') }}</textarea>
+    @error('description') <div class="invalid-feedback">{{ $message }}</div> @enderror
+  </div>
