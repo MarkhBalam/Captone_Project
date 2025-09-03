@@ -14,3 +14,11 @@
                     Delete
                 </button>
             </div>
+            <hr>
+            <p class="mb-2">{{ $project->description ?? 'No description.' }}</p>
+            <div class="row">
+                <div class="col-md-4"><span class="text-muted">Nature</span><div>{{ $project->nature_of_project }}</div></div>
+                <div class="col-md-4"><span class="text-muted">Stage</span><div>{{ $project->prototype_stage ?? '—' }}</div></div>
+                <div class="col-md-4"><span class="text-muted">Focus</span><div>{{ $project->innovation_focus ?? '—' }}</div></div>
+            </div>
+        </div>
