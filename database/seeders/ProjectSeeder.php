@@ -33,3 +33,10 @@ class ProjectSeeder extends Seeder
                 'description' => 'Portable ECG acquisition and analysis',
                 'innovation_focus' => 'MedTech',
             ],
+            [
+                'title' => 'Campus Navigation App',
+                'nature_of_project' => 'Prototype',
+                'prototype_stage' => 'Concept',
+                'description' => 'Wayfinding app with accessibility features',
+                'innovation_focus' => 'Software',
+            ],
