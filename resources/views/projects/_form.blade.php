@@ -54,4 +54,7 @@
     @error('facility_ids.*') <div class="invalid-feedback d-block">{{ $message }}</div> @enderror
   </div>
 </div>
-
+<div class="mt-3">
+  <button class="btn btn-primary">{{ $edit ? 'Update Project' : 'Create Project' }}</button>
+  <a href="{{ route('projects.index') }}" class="btn btn-link">Cancel</a>
+</div>
