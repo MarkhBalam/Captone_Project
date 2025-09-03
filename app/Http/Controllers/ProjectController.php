@@ -62,3 +62,9 @@ class ProjectController extends Controller
         }
         return redirect()->route('projects.show', $project)->with('status','Project created');
     }
+ public function show(Project $project)
+    {
+        $project->load(['program','facilities','participants','outcomes']);
+        $allFacilities = Facility::orderBy('name')->get();
+        return view('projects.show', compact('project','allFacilities'));
+    }
