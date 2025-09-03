@@ -34,3 +34,9 @@
     <textarea name="description" rows="3" class="form-control @error('description') is-invalid @enderror">{{ old('description', $project->description ?? '') }}</textarea>
     @error('description') <div class="invalid-feedback">{{ $message }}</div> @enderror
   </div>
+  <div class="col-md-6">
+    <label class="form-label">Innovation focus</label>
+    <input name="innovation_focus" class="form-control @error('innovation_focus') is-invalid @enderror"
+           value="{{ old('innovation_focus', $project->innovation_focus ?? '') }}">
+    @error('innovation_focus') <div class="invalid-feedback">{{ $message }}</div> @enderror
+  </div>
