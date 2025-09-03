@@ -22,3 +22,7 @@
         <label class="form-label">Prototype stage</label>
         <input name="prototype_stage" class="form-control" value="{{ old('prototype_stage', $project->prototype_stage ?? '') }}">
     </div>
+<div class="col-12">
+        <label class="form-label">Description</label>
+        <textarea name="description" rows="3" class="form-control">{{ old('description', $project->description ?? '') }}</textarea>
+    </div>
