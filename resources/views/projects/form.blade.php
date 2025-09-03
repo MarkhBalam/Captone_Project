@@ -18,3 +18,7 @@
         <label class="form-label">Nature</label>
         <input name="nature_of_project" class="form-control" value="{{ old('nature_of_project', $project->nature_of_project ?? '') }}" required>
     </div>
+    <div class="col-md-6">
+        <label class="form-label">Prototype stage</label>
+        <input name="prototype_stage" class="form-control" value="{{ old('prototype_stage', $project->prototype_stage ?? '') }}">
+    </div>
