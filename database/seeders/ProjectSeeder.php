@@ -40,3 +40,11 @@ class ProjectSeeder extends Seeder
                 'description' => 'Wayfinding app with accessibility features',
                 'innovation_focus' => 'Software',
             ],
+             [
+                'title' => 'Solar Dryer Optimization',
+                'nature_of_project' => 'Applied',
+                'prototype_stage' => 'MVP',
+                'description' => 'Improved airflow and thermal retention',
+                'innovation_focus' => 'Energy',
+            ],
+        ];
