@@ -55,7 +55,10 @@ class ProjectController extends Controller
             'facility_ids' => 'nullable|array',
             'facility_ids.*' => 'exists:facilities,id',
         ]);
+
           $project = Project::create($data);
         if (!empty($data['facility_ids'])) {
             $project->facilities()->sync($data['facility_ids']);
         }
+        return redirect()->route('projects.show', $project)->with('status','Project created');
+    }
