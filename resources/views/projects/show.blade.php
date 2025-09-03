@@ -22,3 +22,19 @@
                 <div class="col-md-4"><span class="text-muted">Focus</span><div>{{ $project->innovation_focus ?? '—' }}</div></div>
             </div>
         </div>
+        <div class="card p-4 mt-3">
+            <h5 class="mb-3">Participants</h5>
+            <ul class="list-group list-group-flush">
+                @forelse($project->participants as $pt)
+                    <li class="list-group-item d-flex align-items-center">
+                        <div>
+                            <strong>{{ $pt->full_name }}</strong>
+                            <div class="small text-muted">{{ $pt->email }}</div>
+                            <div class="small">{{ $pt->role_on_project ?? '—' }} • {{ $pt->skill_role ?? '—' }}</div>
+                        </div>
+                        <a href="{{ route('participants.show',$pt) }}" class="btn btn-sm btn-outline-secondary ms-auto">View</a>
+                    </li>
+                @empty
+                    <li class="list-group-item text-muted">No participants yet.</li>
+                @endforelse
+            </ul>
