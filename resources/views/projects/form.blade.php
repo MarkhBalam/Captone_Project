@@ -26,3 +26,7 @@
         <label class="form-label">Description</label>
         <textarea name="description" rows="3" class="form-control">{{ old('description', $project->description ?? '') }}</textarea>
     </div>
+        <div class="col-md-6">
+        <label class="form-label">Innovation focus</label>
+        <input name="innovation_focus" class="form-control" value="{{ old('innovation_focus', $project->innovation_focus ?? '') }}">
+    </div>
