@@ -27,3 +27,8 @@
       </select>
     </div>
   </div>
+  <div class="mt-2">
+    <button class="btn btn-outline-primary btn-sm">Filter</button>
+    <a class="btn btn-link btn-sm" href="{{ route('projects.index') }}">Reset</a>
+  </div>
+</form>
