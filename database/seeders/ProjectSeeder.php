@@ -26,3 +26,10 @@ class ProjectSeeder extends Seeder
                 'description' => 'Soil sensors + mobile dashboard',
                 'innovation_focus' => 'AgriTech',
             ],
+            [
+                'title' => 'Low-cost ECG Device',
+                'nature_of_project' => 'Research',
+                'prototype_stage' => 'Prototype',
+                'description' => 'Portable ECG acquisition and analysis',
+                'innovation_focus' => 'MedTech',
+            ],
